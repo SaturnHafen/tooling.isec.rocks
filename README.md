@@ -2,11 +2,7 @@
 
 ## `flagfinder.sh`
 
-Searches for known flag-locations (optionally on a remote maschine).
-
-```sh
-./flagfinder.sh root@example.isec.rocks
-```
+Searches for known flag-locations.
 
 ```sh
 ./flagfinder.sh
