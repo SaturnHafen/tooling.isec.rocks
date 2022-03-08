@@ -1,12 +1,12 @@
 #! /bin/bash
 
 # is docker installed?
-docker > /dev/null
+docker &>/dev/null
 if [[ $? -eq 0 ]]; then
   echo "docker is installed!"
 
   # is docker socket mounted? / rw-access?
-  docker ps > /dev/null
+  docker ps &>/dev/null
   if [[ $? -eq 0 ]]; then
     echo "We can talk to the docker deamon!"
   fi
@@ -17,15 +17,17 @@ if [[ $? -eq 0 ]]; then
 fi
 
 # is container priviledged?
-ip link add dummy0 type dummy >/dev/null
+ip link add dummy0 type dummy &>/dev/null
 if [[ $? -eq 0 ]]; then
     echo "We are priviledged!"
 
     ip link delete dummy0 >/dev/null
 fi
 
+echo "\n available harddisks"
 # misc: harddisks
 lsblk
 
+echo "\n running flagfinder"
 # misc: flagfinder
-flagfinder
+./flagfinder
