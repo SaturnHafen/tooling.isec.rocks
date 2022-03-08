@@ -8,6 +8,22 @@ Searches for known flag-locations.
 ./flagfinder.sh
 ```
 
+## `dockerchecker.sh`
+
+Checks for some common security problems inside a docker container
+
+```sh
+./dockerchecker.sh
+```
+
+## `docker-deployer.sh`
+
+Adds your public key (`~/.ssh/id_rsa.pub`) to the remote server and copies both `flagfinder.sh` and `dockerchecker.sh` to the remote service using scp and runs them
+
+```sh
+./docker-deployer.sh root@example.isec.rocks
+```
+
 ## `passwordcrack.sh`
 
 Copies `/etc/passwd` & `/etc/shadow` to your local maschine using scp, `unshadow`s the selected user and starts the passwordcracking with john (rockyou wordlist).
@@ -26,12 +42,4 @@ If you already downloaded `/etc/passwd` & `/etc/shadow`
 
 ```sh
 ./passwordcrack.sh username
-```
-
-## `dockerchecker.sh`
-
-Checks for some common security problems inside a docker container
-
-```sh
-./dockerchecker.sh
 ```
