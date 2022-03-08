@@ -8,26 +8,26 @@ if [[ $? -eq 0 ]]; then
   # is docker socket mounted? / rw-access?
   docker ps &>/dev/null
   if [[ $? -eq 0 ]]; then
-    echo "We can talk to the docker deamon!"
+    echo "we can talk to the docker deamon!"
   fi
 
   # available images
-  echo "Available images: "
+  echo "available images: "
   docker images
 fi
 
 # is container priviledged?
 ip link add dummy0 type dummy &>/dev/null
 if [[ $? -eq 0 ]]; then
-    echo "We are priviledged!"
+    echo "we are priviledged!"
 
     ip link delete dummy0 >/dev/null
 fi
 
-echo "\n available harddisks"
+echo "available harddisks"
 # misc: harddisks
 lsblk
 
-echo "\n running flagfinder"
+echo "running flagfinder"
 # misc: flagfinder
-./flagfinder
+./flagfinder.sh
