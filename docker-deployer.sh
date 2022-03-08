@@ -1,5 +1,5 @@
 #! /bin/bash
-scp $1:dockerchecker.sh dockerchecker.sh
-scp $1:flagfinder.sh flagfinder.sh
+scp dockerchecker.sh $1:dockerchecker.sh
+scp flagfinder.sh $1:flagfinder.sh
 
-ssh $1 "chmod +x $2; ./dockerchecker.sh"
+ssh $1 "chmod +x dockerchecker.sh; chmod+x dockerchecker.sh; ./dockerchecker.sh"
