@@ -7,7 +7,7 @@ if [[ $? -eq 0 ]]; then
 
   # is docker socket mounted? / rw-access?
   docker ps > /dev/null
-  if [[ $? -eq 0]]; then
+  if [[ $? -eq 0 ]]; then
     echo "We can talk to the docker deamon!"
   fi
 
