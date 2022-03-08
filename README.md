@@ -14,6 +14,14 @@ Copies `/etc/passwd` & `/etc/shadow` to your local maschine using scp, `unshadow
 
 > Note: You need to login as root to copy the `/etc/shadow` file
 
+If you still need to download `/etc/passwd` & `/etc/shadow`
 ```sh
-./passwordcrack.sh root@example.isec.rocks username
+./passwordcrack.sh -d root@example.isec.rocks username
+```
+
+> Note: Both files are expected to live in `.`
+
+If you already downloaded `/etc/passwd` & `/etc/shadow`
+```sh
+./passwordcrack.sh username
 ```
