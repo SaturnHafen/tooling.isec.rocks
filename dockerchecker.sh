@@ -1,8 +1,5 @@
 #! /bin/bash
 
-# connect to server
-ssh $1
-
 # is docker installed?
 docker > /dev/null
 if [[ $? -eq 0 ]]; then
