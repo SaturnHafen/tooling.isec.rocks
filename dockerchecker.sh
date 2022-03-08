@@ -5,15 +5,15 @@ docker &>/dev/null
 if [[ $? -eq 0 ]]; then
   echo "docker is installed!"
 
-  # is docker socket mounted? / rw-access?
+  # is docker socket mounted?
   docker ps &>/dev/null
   if [[ $? -eq 0 ]]; then
     echo "we can talk to the docker deamon!"
   fi
 
-  # available images
   echo "available images: "
   docker images
+  echo ""
 fi
 
 # is container priviledged?
@@ -27,6 +27,7 @@ fi
 echo "available harddisks"
 # misc: harddisks
 lsblk
+echo ""
 
 echo "running flagfinder"
 # misc: flagfinder

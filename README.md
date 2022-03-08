@@ -30,8 +30,8 @@ If you already downloaded `/etc/passwd` & `/etc/shadow`
 
 ## `dockerchecker.sh`
 
-Checks for known security problems inside a remote docker container
+Checks for some common security problems inside a docker container
 
 ```sh
-./dockerchecker.sh root@example.isec.rocks
+./dockerchecker.sh
 ```
