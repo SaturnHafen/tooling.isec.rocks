@@ -31,3 +31,11 @@ If you already downloaded `/etc/passwd` & `/etc/shadow`
 ```sh
 ./passwordcrack.sh username
 ```
+
+## `dockerchecker.sh`
+
+Checks for known security problems inside a remote docker container
+
+```sh
+./dockerchecker.sh root@example.isec.rocks
+```
