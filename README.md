@@ -12,16 +12,18 @@ Searches for known flag-locations on a remote maschine.
 
 Copies `/etc/passwd` & `/etc/shadow` to your local maschine using scp, `unshadow`s the selected user and starts the passwordcracking with john (rockyou wordlist).
 
+If you still need to download `/etc/passwd` & `/etc/shadow`
+
 > Note: You need to login as root to copy the `/etc/shadow` file
 
-If you still need to download `/etc/passwd` & `/etc/shadow`
 ```sh
 ./passwordcrack.sh -d root@example.isec.rocks username
 ```
 
+If you already downloaded `/etc/passwd` & `/etc/shadow`
+
 > Note: Both files are expected to live in `.`
 
-If you already downloaded `/etc/passwd` & `/etc/shadow`
 ```sh
 ./passwordcrack.sh username
 ```
