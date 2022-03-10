@@ -13,10 +13,10 @@ port=$3
 echo "adding your public key to the remote service..."
 ssh-copy-id -i $ssh_key -p "$port" "$user@$adress"
 # copy relevant files to remote maschine
-scp -i ~/.ssh/github -P "$port" flagfinder.sh dockerchecker.sh rg "$user@[$adress]:~"
+scp -i $ssh_key -P "$port" flagfinder.sh dockerchecker.sh rg "$user@[$adress]:~"
 
 # Make files executable
-ssh "$user@$adress" -i ~/.ssh/github "chmod +x dockerchecker.sh; chmod +x flagfinder.sh; chmod +x rg"
+ssh "$user@$adress" -i $ssh_key "chmod +x dockerchecker.sh; chmod +x flagfinder.sh; chmod +x rg"
 
 #Connect to machine
-ssh "$user@$adress" -i ~/.ssh/github
+ssh "$user@$adress" -i $ssh_key
