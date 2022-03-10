@@ -1,21 +1,22 @@
 #! /bin/bash
-
-KEYFILE="~/.ssh/id_rsa.pub"
-
-if [[ $# -eq 1 ]]; then
-  echo "Using default port 22"
-  PORT=22
-else
-  echo "Using custom port"
-  PORT=$2
+ssh_key="/home/$USER/.ssh/KEY"
+if [ "$#" -lt 3 ]; then
+    echo "[!] Usage $0 [username] [adress] [port]"
+    exit 1
 fi
+
+user=$1
+adress=$2
+port=$3
 
 # copy your public key to remote to allow key-login
 echo "adding your public key to the remote service..."
-ssh-copy-id -i -p $PORT $KEYFILE $1
-
+ssh-copy-id -i $ssh_key -p "$port" "$user@$adress"
 # copy relevant files to remote maschine
-scp dockerchecker.sh $1:dockerchecker.sh -p $PORT
-scp flagfinder.sh $1:flagfinder.sh -p $PORT
+scp -i $ssh_key -P "$port" flagfinder.sh dockerchecker.sh rg "$user@[$adress]:~"
 
-ssh $1 "chmod +x dockerchecker.sh; chmod +x flagfinder.sh; ./dockerchecker.sh"
+# Make files executable
+ssh "$user@$adress" -i $ssh_key "chmod +x dockerchecker.sh; chmod +x flagfinder.sh; chmod +x rg"
+
+#Connect to machine
+ssh "$user@$adress" -i $ssh_key
