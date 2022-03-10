@@ -29,6 +29,8 @@ echo "available harddisks"
 lsblk
 echo ""
 
+read -p "press enter to continue"
+
 echo "running flagfinder"
 # misc: flagfinder
 ./flagfinder.sh
