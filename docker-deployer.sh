@@ -1,5 +1,6 @@
 #! /bin/bash
 ssh_key="/home/$USER/.ssh/KEY"
+
 if [ "$#" -lt 3 ]; then
     echo "[!] Usage $0 [username] [adress] [port]"
     exit 1
@@ -16,7 +17,7 @@ ssh-copy-id -i $ssh_key -p "$port" "$user@$adress"
 scp -i $ssh_key -P "$port" flagfinder.sh dockerchecker.sh rg "$user@[$adress]:~"
 
 # Make files executable
-ssh "$user@$adress" -i $ssh_key "chmod +x dockerchecker.sh; chmod +x flagfinder.sh; chmod +x rg"
+ssh "$user@$adress" -i $ssh_key -p "$port" "chmod +x dockerchecker.sh; chmod +x flagfinder.sh; chmod +x rg"
 
 #Connect to machine
-ssh "$user@$adress" -i $ssh_key
+ssh "$user@$adress" -i $ssh_key -p "$port"
