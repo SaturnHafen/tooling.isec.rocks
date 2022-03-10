@@ -18,10 +18,16 @@ Checks for some common security problems inside a docker container
 
 ## `docker-deployer.sh`
 
-Adds your public key (`~/.ssh/id_rsa.pub`) to the remote server and copies both `flagfinder.sh` and `dockerchecker.sh` to the remote service using scp and runs them
+Adds your public key (`~/.ssh/id_rsa.pub`) to the remote server, copies both `flagfinder.sh` and `dockerchecker.sh` to the remote service using scp and runs them
 
 ```sh
 ./docker-deployer.sh root@example.isec.rocks
+```
+
+If your server listens on a custom port
+
+```sh
+./docker-deployer.sh root@example.isec.rocks 1025
 ```
 
 ## `passwordcrack.sh`
