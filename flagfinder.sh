@@ -1,10 +1,10 @@
 #!/bin/bash
 
 echo 'Searching environment of current process'
-printenv | grep 'isec{.*}'
+printenv | grep -o 'isec{.*}'
 
 echo 'Searching environment of all processes'
-ps auxe | grep 'isec{.*}'
+ps auxe | grep -o 'isec{.*}'
 
 echo 'Searching for "interesting_file" with content "isec{.*}"'
 find / -type f -name interesting_file -exec grep 'isec{.*}'  {} \; 2>/dev/null
