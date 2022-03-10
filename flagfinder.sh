@@ -16,8 +16,9 @@ echo 'Strat ripgrep in /root/'
 echo 'Start ripgrep in /'
 ./rg --follow --pretty --no-ignore --text --no-mmap --search-zip -j1 -o --hidden -i -g '!/home/' -g '!/root/' 'isec\{.*\}' / 2>> error_log
 
-echo 'Searching for "interesting_file" with content "isec{.*}"'
-find / -type f -name interesting_file -exec grep -H -s -i -o --color=always '.*isec{.*}'  {} \; 2>> error_log
+echo 'Searching for "interesting_file"'
+find / -L -type f -name interesting_file 2>> error_log
 
-echo 'Searching for file with content "isec{.*}"'
-find / -type f -exec grep -H -s -i -o --color=always '.*isec{.*}'  {} \; 2>> error_log
+echo 'Searching for "hint"'
+find / -L -type f -name hint 2>> error_log
+
